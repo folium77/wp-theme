@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%- include('../_include/meta.ejs', { page: '/' }) %>
+  <% include assets/include/common/head %>
+  <% include assets/include/common/tgm_head %>
+</head>
+<body>
+  <% include assets/include/common/tgm_body %>
+  <% include assets/include/common/header %>
+
+  <!-- breadcrumb -->
+  <ul class="breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+    <li class="breadcrumb__item" property="itemListElement" typeof="ListItem">
+      <a href="http://example.com/" class="breadcrumb__link" property="item" typeof="WebPage"><span property="name">トップ</span></a>
+      <meta property="position" content="1">
+    </li>
+    <li class="breadcrumb__item" property="itemListElement" typeof="ListItem">
+      <span property="name">ページ</span>
+      <meta property="position" content="2">
+    </li>
+  </ul>
+  <!-- /breadcrumb -->
+
+  <div style="height: 2000px;"></div>
+
+  <% include assets/include/common/footer %>
+  <% include assets/include/common/foot %>
+</body>
+</html>

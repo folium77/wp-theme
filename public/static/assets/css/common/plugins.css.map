@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "plugins.css",
+	"sources": [
+		"../../../../../src/static/assets/scss/common/plugins.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

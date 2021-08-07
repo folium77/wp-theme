@@ -1,0 +1,64 @@
+/* UTILITY
+---------------------------------------------------------- */
+.is-pc {
+  display: none !important;
+
+  @include mq-up() {
+    display: block !important;
+  }
+}
+
+.is-sp {
+  display: block !important;
+
+  @include mq-up() {
+    display: none !important;
+  }
+}
+
+.ta-left {
+  text-align: left;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.ta-right{
+  text-align: right;
+}
+
+@for $i from 0 through 10 {
+  .mt--#{$i * 5} {
+    margin-top: #{$i * 5}px !important;
+  }
+  .mb--#{$i * 5} {
+    margin-bottom: #{$i * 5}px !important;
+  }
+  .mr--#{$i * 5} {
+    margin-right: #{$i * 5}px !important;
+  }
+  .ml--#{$i * 5} {
+    margin-left: #{$i * 5}px !important;
+  }
+  .pt--#{$i * 5} {
+    padding-top: #{$i * 5}px !important;
+  }
+  .pb--#{$i * 5} {
+    padding-bottom: #{$i * 5}px !important;
+  }
+  .pr--#{$i * 5} {
+    padding-right: #{$i * 5}px !important;
+  }
+  .pl--#{$i * 5} {
+    padding-left: #{$i * 5}px !important;
+  }
+}
+
+.dpNone {
+  display: none;
+}
+
+.italic {
+  font-style: italic;
+}

@@ -1,0 +1,31 @@
+@charset "utf-8";
+/*
+Theme Name: example
+*/
+
+body {
+  background-color: #e9ecf2;
+}
+
+.login h1 a {
+  width: 104px;
+  height: 104px;
+  background-image: none,url('/assets/images/common/logo.svg');
+  background-size: contain;
+}
+
+.login form {
+  border: 0;
+  box-shadow: 0 0px 5px #94cbff;
+  border-radius: 10px;
+}
+
+.wp-core-ui .button-primary {
+  background: #c00000;
+  border-color: #c00000;
+}
+
+.wp-core-ui .button-primary:hover {
+  background: #c00000ba;
+  border-color: #c00000ba;
+}

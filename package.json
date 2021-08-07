@@ -1,0 +1,44 @@
+{
+  "name": "example",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "concatjs": "concat -o public/static/assets/js/common/plugins.js src/static/assets/js/plugins/*.js",
+    "imagemin:build": "node ./config/imagemin.js",
+    "ejs": "./node_modules/.bin/ejs-cli --base-dir src/static \"**/*.ejs\" --out public/static",
+    "watch:sass": "node-sass --importer node_modules/node-sass-globbing/index.js src/static/assets/scss --output src/static/assets/css --source-map src/static/assets/source-map/css -w --output-style compressed",
+    "watch:autoprefixer": "postcss src/static/assets/css/**/*.css --base ./src/static/assets/css --dir public/static/assets/css --config=./config -w --no-map",
+    "watch:imagemin": "onchange \"src/static/assets/images\" -e \"**/*.DS_Store\" -- npm run imagemin:build",
+    "watch:ejs": "nodemon --ext ejs --watch ./src/ -x \"npm run ejs\"",
+    "watch:server": "browser-sync start --proxy example.wp --open external --files=\"public/**/*.html, public/**/*.php, public/**/*.css, public/**/*.js\"",
+    "watch": "npm-run-all -p watch:*"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "browser-sync": "^2.26.7",
+    "concat": "^1.0.3",
+    "ejs-cli": "^2.1.1",
+    "imagemin": "^7.0.1",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-keep-folder": "^5.3.2",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "imagemin-webp": "^5.1.0",
+    "node-sass": "^4.13.0",
+    "node-sass-globbing": "0.0.23",
+    "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.1.0",
+    "postcss-cli": "^7.1.0",
+    "postcss-import": "^12.0.1",
+    "uglify-es": "^3.3.9",
+    "watch": "^1.0.2"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

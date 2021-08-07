@@ -1,0 +1,12 @@
+@import "../configs/_variable.scss";
+@import "include/foundation/_normalize.scss";
+@import "include/foundation/_default.scss";
+@import "include/foundation/_fonts.scss";
+@import 'include/layout/_header.scss';
+// @import 'include/layout/_gnav_side.scss'; // バックログ風ナビ
+@import 'include/layout/_gnav.scss';
+@import 'include/layout/_side.scss';
+@import 'include/layout/_main.scss';
+@import 'include/layout/_footer.scss';
+@import 'include/object/_component.scss';
+@import 'include/object/_utility.scss';

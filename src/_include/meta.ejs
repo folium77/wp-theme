@@ -1,0 +1,32 @@
+<%
+  const meta = {
+    "default": {
+      "title": "デフォルトのタイトル",
+      "description": "デフォルトのディスクリプション",
+      "url":"http://example.com/",
+      "ogp_img": "http://example.com/assets/images/common/ogp.jpg",
+      "sitename": "サイト名"
+    },
+    "/": {
+      "title": "タイトル",
+      "description": "ディスクリプション",
+      "ogp_img": "http://example.com/assets/images/common/ogp.jpg",
+      "url": "http://example.com/"
+    },
+  }
+%>
+<%
+  const ogtype  = ( meta[page]['url'] === 'http://example.com/' ) ? 'website' : 'article';
+  const sitename = ( ogtype !== 'website' ) ? `${meta['default']['sitename']}` : meta['default']['sitename'];
+  const title    = ( ogtype !== 'website' ) ? `${meta[page]['title']} | ${sitename}` : meta['default']['sitename'];
+%>
+<meta name="description" content="<%= meta[page]['description'] %>">
+<meta property="og:site_name" content="<%= meta['default']['sitename'] %>" />
+<meta property="og:title" content="<%= meta['default']['sitename'] %>">
+<meta property="og:image" content="<%= meta[page]['ogp_img'] %>">
+<meta property="og:description" content="<%= meta[page]['description'] %>">
+<meta property="og:url" content="<%= meta[page]['url'] %>">
+<meta property="og:type" content="<%= ogtype %>">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="<%= meta[page]['url'] %>">
+<title><%= title %></title>

@@ -1,0 +1,85 @@
+//*  FONT
+//---------------------------------------------------------- */
+$sans: "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "游ゴシック", YuGothic, "メイリオ", "Meiryo", sans-serif;
+$serif: "Hiragino Mincho ProN", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+
+//*  COLOR
+//---------------------------------------------------------- */
+$text_color: #333;
+$link_color: #332d2b;
+$hover_color: #c7a96a;
+
+
+//* Media Queries
+//---------------------------------------------------------- */
+// min-width
+$breakpoint-up: (
+  'sm': 'screen and (min-width: 400px)',
+  'md': 'screen and (min-width: 768px)',
+  'ml': 'screen and (min-width: 801px)',
+  'lg': 'screen and (min-width: 1000px)',
+  'lgm': 'screen and (min-width: 1030px)',
+  'lgp': 'screen and (min-width: 1075px)',
+  'xl': 'screen and (min-width: 1200px)',
+  'xxl': 'screen and (min-width: 1228px)',
+) !default;
+
+// max-width
+$breakpoint-down: (
+  'sm': 'screen and (max-width: 399px)',
+  'md': 'screen and (max-width: 767px)',
+  'ml': 'screen and (max-width: 800px)',
+  'lg': 'screen and (max-width: 999px)',
+  'lgm': 'screen and (max-width: 1029px)',
+  'lgp': 'screen and (max-width: 1074px)',
+  'xl': 'screen and (max-width: 1199px)',
+  'xxl': 'screen and (max-width: 1227px)',
+) !default;
+
+
+@mixin mq-up($breakpoint: md) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: md) {
+  @media #{map-get($breakpoint-down, $breakpoint)} {
+    @content;
+  }
+}
+
+//* widtnPercent
+//---------------------------------------------------------- */
+@function widtnPercent( $parentPxWidth, $pxWidth ){
+	@return floor((( $pxWidth / $parentPxWidth ) * 10000% )) / 100;
+}
+
+//* fz_vw
+//---------------------------------------------------------- */
+@function get_vw($size, $viewport:768){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+@mixin fz_vw($font_size:10){
+  font-size: $font_size * 1px;
+  font-size: get_vw($font_size);
+}
+
+//* clearfix
+//---------------------------------------------------------- */
+@mixin clearfix(){
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+//* siteWidth
+//---------------------------------------------------------- */
+@mixin siteWidth(){
+  width: 97.5%;
+  max-width: 1068px;
+}

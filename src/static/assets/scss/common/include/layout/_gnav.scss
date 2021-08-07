@@ -1,0 +1,536 @@
+.gnav {
+  background-color: #fff;
+  z-index: 10;
+
+  @include mq-down() {
+    padding-top: widtnPercent(750, 40);
+  }
+
+  @include mq-up() {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 5px 3px -3px rgba(#000 , 0.1);
+    box-sizing: border-box;
+  }
+}
+
+.gnav__inner {
+  margin-bottom: widtnPercent(750, 45);
+
+  @include mq-up() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include siteWidth();
+    margin: 0 auto;
+  }
+}
+
+.gnav-catalog-btns {
+  display: flex;
+  justify-content: space-between;
+  width: widtnPercent(750, 710);
+  margin: 0 auto widtnPercent(750, 40);
+
+  @include mq-up() {
+    display: none;
+  }
+}
+
+.gnav-logo {
+  width: widtnPercent(1100, 110);
+  @include mq-down('lg') {
+    display: none;
+  }
+}
+
+.gnav-catalog-btns__item {
+  width: widtnPercent(710, 340);
+}
+
+.gnav__menu {
+
+  @include mq-down(lg) {
+    width: widtnPercent(1000, 720);
+    margin-left: widtnPercent(1030, 143);
+  }
+
+  @include mq-down() {
+    width: widtnPercent(750, 710);
+    margin: 0 auto;
+  }
+
+  @include mq-up() {
+    min-width: 580px;
+  }
+
+  @include mq-up(lg) {
+    width: widtnPercent(1030, 630);
+    margin-left: widtnPercent(1030, 143);
+  }
+}
+
+.gnav.-blackformal .gnav__menu {
+  @include mq-up(lg) {
+    width: widtnPercent(1030, 450);
+  }
+}
+
+
+.gnav-item--primary {
+  @include mq-down() {
+    border-bottom: 1px solid #d3d3d3;
+  }
+
+  &:first-child {
+    @include mq-down() {
+      border-top: 1px solid #d3d3d3;
+    }
+  }
+}
+
+.gnav__text--eng {
+
+  @include mq-down() {
+    margin-right: 1em;
+    vertical-align: middle;
+    @include fz_vw(25);
+  }
+
+  @include mq-up() {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+}
+
+.gnav__text--ja {
+
+  @include mq-down() {
+    vertical-align: middle;
+    @include fz_vw(17);
+    color: #a59b99;
+  }
+
+  @include mq-up() {
+    display: block;
+    font-size: 10px;
+  }
+}
+
+
+.gnav-item--secondary {
+
+  @include mq-down() {
+    background-color: #f5f5f5;
+  }
+
+  @include mq-up() {
+    min-width: 120px;
+    word-break: keep-all;
+    background-color: rgba(#fff, 0.9);
+    box-shadow: 0 2px 4px rgba(#000, 0.2);
+  }
+}
+
+.gnav-item--tertiary {
+
+  @include mq-down() {
+    border-top: 1px dashed #d3d3d3;
+    @include fz_vw(25);
+  }
+
+}
+
+
+.gnav-item__link--primary,
+.gnav-sub__link {
+  display: block;
+  color: $text_color;
+
+  &:hover {
+    @include mq-up() {
+      color: $hover_color;
+      transition-duration: 0s;
+    }
+  }
+
+  @include mq-up() {
+    padding: 15px 0;
+    text-align: center;
+    line-height: 1;
+    transition: color .35s;
+  }
+}
+
+.gnav.-blackformal .gnav-item__link--primary,
+.gnav.-blackformal .gnav-sub__link {
+  &:hover {
+    @include mq-up() {
+      color: #EA8752;
+    }
+  }
+}
+
+.gnav.-partydress .gnav-item__link--primary,
+.gnav.-partydress .gnav-sub__link {
+  &:hover {
+    @include mq-up() {
+      color: #EA8752;
+    }
+  }
+}
+
+.gnav-item__link--primary {
+  @include mq-down() {
+    padding: 1em;
+  }
+}
+
+.gnav-item__link--primary.no-link {
+  cursor: default;
+}
+
+.gnav-item__link--tertiary {
+  display: block;
+
+  @include mq-down() {
+    padding: 1em 2em;
+  }
+
+  @include mq-up() {
+    padding: 0.625em;
+    font-size: 12px;
+    transition: all .35s;
+  }
+
+  &:hover {
+    @include mq-up() {
+      background-color: #fff;
+      color: $hover_color;
+      transition-duration: 0s;
+    }
+  }
+}
+
+.gnav-sub {
+
+  @include mq-down() {
+    display: none;
+  }
+
+  @include mq-up() {
+    display: flex;
+    justify-content: space-between;
+    width: 222px;
+  }
+
+  @include mq-down(lg) {
+    justify-content: flex-end;
+  }
+}
+
+.gnav-sub__item {
+  letter-spacing: 0.05em;
+  font-size: 13px;
+}
+
+.gnav-sub__item .icon-cart,
+.gnav-sub__item--event .icon-bell {
+  font-size: 22px;
+  vertical-align: middle;
+}
+
+.gnav-sub__item--event {
+  @include mq-down(lg) {
+    margin-right: 10%;
+  }
+}
+
+.gnav-sub__item--event .icon-bell {
+  margin-right: 0.25em;
+}
+
+.gnav-sub__link {
+  position: relative;
+}
+
+.gnav-sub__text {
+  @include mq-down(lg) {
+    display: none;
+  }
+}
+
+.gnav-social {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em widtnPercent(750, 55);
+  background-color: #332e2b;
+
+  @include mq-up() {
+    display: none;
+  }
+}
+
+.gnav-social__link {
+  @include fz_vw(38);
+  color: #fff;
+}
+
+/* gnav animation SP （アニメーション用のためスタイルは上部に別途記載）
+---------------------------------------------------------- */
+.gnav {
+  @include mq-down() {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    transform: translateY(-100vh);
+    transition: all .5s;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 20;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .is-nav-opened & {
+    @include mq-down() {
+      max-height: calc(100vh - 50px);
+      transform: translateY(50px);
+      overflow: scroll;
+    }
+  }
+}
+
+/* overlay
+---------------------------------------------------------- */
+.is-nav-opened {
+  height: 100%;
+  overflow: hidden;
+}
+
+.overlay {
+  display: none;
+
+  .is-nav-opened & {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, 0.6);
+    z-index: 10;
+  }
+}
+
+/* gnav animation PC （アニメーション用のためスタイルは上部に別途記載）
+---------------------------------------------------------- */
+.gnav__menu {
+  @include mq-up() {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.gnav-item__inner {
+  position: relative;
+}
+
+.gnav-dropdown__icon {
+  @include mq-up() {
+    display: none;
+  }
+}
+
+.gnav-dropdown__content {
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* Dropdown animation PC （アニメーション用のためスタイルは上部に別途記載）
+---------------------------------------------------------- */
+
+.gnav-dropdown {
+  @include mq-up() {
+    position: relative;
+  }
+}
+
+.gnav-dropdown__content {
+  @include mq-up() {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    transition: all .4s;
+    opacity: 0;
+  }
+
+  .gnav-item--primary:hover & {
+    @include mq-up() {
+      max-height: 100vh;
+      overflow: auto;
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Dropdown animation SP （アニメーション用のためスタイルは上部に別途記載）
+---------------------------------------------------------- */
+.gnav-dropdown {
+  @include mq-down() {
+    overflow: hidden;
+  }
+}
+
+.gnav-dropdown__content {
+
+  @include mq-down() {
+    transition: all .35s;
+  }
+
+  .is-expand > & {
+    @include mq-down() {
+      max-height: 100vh;
+    }
+  }
+}
+
+/* ---- gnav-dropdown__icon ---- */
+.gnav-dropdown__icon {
+  @include mq-up() {
+    display: none;
+  }
+}
+
+.gnav-dropdown__icon {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+  width: widtnPercent(709, 108);
+  height: 100%;
+}
+
+.gnav-dropdown__icon:before,
+.gnav-dropdown__icon:after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: widtnPercent(108, 30);
+  height: 1px;
+  background-color: #030303;
+  box-sizing: border-box;
+  transition: all .3s;
+  content: '';
+}
+
+.gnav-dropdown__icon:before {
+  transform: translateX(-50%) rotate(0deg);
+
+  .is-expand > .gnav-item__inner > & {
+    display:none;
+  }
+}
+
+.gnav-dropdown__icon:after {
+  transform: translateX(-50%) rotate(90deg);
+
+  .is-expand > .gnav-item__inner > & {
+    transform: translateX(-50%) rotate(180deg);
+  }
+}
+
+/* event-nav
+---------------------------------------------------------- */
+.gnav-under-bnrs {
+  @include mq-down() {
+  }
+}
+
+.gnav-under-bnrs__item {
+  @include mq-down() {
+    width: widtnPercent(750, 710);
+    margin: widtnPercent(750, 40) auto;
+    line-height: 0;
+  }
+}
+
+
+/* catalog-btns( stagedress メンバーズカードボタン)
+---------------------------------------------------------- */
+.gnav.-stagedress .catalog-btns {
+
+  @include mq-down() {
+    display: block;
+    width: widtnPercent(750, 500);
+    margin: 0 auto widtnPercent(750, 40);
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+
+  @include mq-up() {
+    display: none;
+  }
+}
+
+.gnav.-stagedress .catalog-btns .catalog-btns__link {
+
+  @include mq-down() {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 2.6vw;
+    border-radius: 5px;
+  }
+
+}
+
+.gnav.-stagedress .catalog-btns .catalog-btns__link i {
+
+  @include mq-down() {
+    width: 14vw;
+    margin: 0;
+    text-align: left;
+  }
+
+}
+
+.gnav.-stagedress .catalog-btns .catalog-btns__link .text {
+
+  @include mq-down() {
+    @include fz_vw(24);
+    -webkit-writing-mode: horizontal-tb;
+    -ms-writing-mode: horizontal-tb;
+    writing-mode: horizontal-tb;
+  }
+
+  .text__l {
+    font-size: 100%;
+  }
+
+}
+
+.gnav.-stagedress .catalog-btns .catalog-btns__link br {
+
+  @include mq-down() {
+    display: none;
+  }
+
+}
+
+
+
+
+

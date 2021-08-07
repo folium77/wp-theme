@@ -1,0 +1,50 @@
+/* DEFAULT
+---------------------------------------------------------- */
+body {
+  font-family: $sans;
+  @include fz_vw(28);
+  font-weight: 500;
+  line-height: 2;
+  color: $text_color;
+
+  @include mq-up() {
+    font-size: 13px;
+  }
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+a {
+  color: $text_color;
+  text-decoration: none;
+}
+
+a[href^="tel:"] {
+  @include mq-up() {
+    pointer-events: none;
+  }
+}
+
+ul, ol, li, dl, dd {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

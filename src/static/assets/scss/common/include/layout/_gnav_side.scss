@@ -1,0 +1,755 @@
+
+.gnav {
+  padding-top: 0;
+  background-color: #fff;
+  z-index: 20;
+  transition: all 0.2s ease-out;
+
+  @include mq-down('lgm') {
+    border-top: 1px solid #000;
+    overflow: hidden;
+  }
+
+  @include mq-up('lgm') {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: calc(100% - 33px);
+    padding-top: 33px;
+  }
+
+  .is-nav-opened & {
+    overflow: auto;
+
+    @include mq-up('lgm') {
+      width: 218px;
+    }
+  }
+}
+
+.gnav__menu {
+  @include mq-down('lgm') {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.gnav__inner {
+
+}
+
+.gnav-item--primary {
+  float: none;
+  margin: 0;
+  letter-spacing: 0.025em;
+
+  @include mq-down('lgm') {
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.gnav-item__link,
+.gnav-item__link--tertiary {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  color: #00244e;
+
+  @include mq-up('lgm') {
+    height: 40px;
+    padding: 0.0;
+    font-size: 12px;
+  }
+
+  &:hover {
+    @include mq-up('lgm') {
+      text-decoration: none;
+      color: #ff6600;
+    }
+  }
+
+  i {
+    min-width: 20px;
+    font-size: 14px;
+
+    @include mq-up('lgm') {
+      min-width: 50px;
+      text-align: center;
+      font-size: 21px;
+    }
+  }
+
+  .icon-bicycle {
+    @include mq-up('lgm') {
+      font-size: 17px;
+    }
+  }
+}
+
+.gnav-item__link {
+  @include mq-down('lgm') {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    line-height: 150%;
+  }
+
+  &:after {
+    @include mq-down('lgm') {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+      background: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212px%22%20height%3D%2224px%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%2300244e%22%20d%3D%22M1.430%2C23.581%20L0.015%2C21.983%20L8.932%2C11.861%20L0.015%2C1.743%20L1.430%2C0.147%20L11.755%2C11.861%20L1.430%2C23.581%20Z%22%2F%3E%3C%2Fsvg%3E') no-repeat center right;
+      background-size: contain;
+      content: '';
+    }
+  }
+
+  &:focus {
+    color: #00244e;
+  }
+}
+
+.gnav-item__inner > .gnav-item__link:after {
+  @include mq-down('lgm') {
+    display: none;
+  }
+}
+
+.gnav-item__link:hover {
+  @include mq-down('lgm') {
+    color: #00244e;
+    text-decoration: none;
+  }
+
+  @include mq-up('lgm') {
+    background-color: #eee;
+  }
+}
+
+.gnav-item__link:focus {
+  @include mq-down('lgm') {
+    color: #00244e;
+  }
+
+}
+
+.gnav-item__link i {
+  @include mq-down('lgm') {
+    margin-right: 1em;
+  }
+}
+
+.gnav-item__link .icon-logo {
+  font-size: 10px;
+}
+
+.gnav-item__text {
+  display: inline-block;
+  white-space: nowrap;
+  transition-duration: 0s;
+
+  @include mq-down('lgm') {
+    flex-grow: 1;
+    text-align: left;
+  }
+}
+
+.gnav-item__text.pd-l {
+  @include mq-up('lgm') {
+    padding-left: 2em;
+  }
+}
+
+body:not(.is-nav-opened) .gnav-item__text {
+  opacity: 0;
+  left: 0;
+  visibility: hidden;
+  transition: all 0.1s;
+}
+
+body:not(.is-nav-opened) .gnav-item__link:hover .gnav-item__text {
+
+  @include mq-up('lgm') {
+    position: relative;
+    padding: 1em;
+    background-color: rgba(#000, 0.8);
+    border-radius: 3px;
+    opacity: 1;
+    color: #fff;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    margin-top: -5px;
+    border: 5px solid transparent;
+    border-right: 5px solid rgba(#000, 0.8);
+  }
+
+  left: 10px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.gnav-item--secondary {
+  @include mq-up('lgm') {
+    width: 230px;
+    background-color: #eee;
+  }
+}
+
+.gnav-item--tertiary {
+  @include mq-down('lgm') {
+    padding-left: 1.5em;
+  }
+
+  &:first-child {
+    border-top: 1px solid #eee;
+  }
+}
+
+.gnav-item__link--tertiary {
+  color: #00244e;
+
+  @include mq-down('lgm') {
+    padding: 15px 20px;
+    line-height: 150%;
+    font-size: 14px;
+  }
+
+  &:hover {
+    @include mq-down('lgm') {
+      color: #00244e;
+      text-decoration: none;
+    }
+
+    @include mq-up('lgm') {
+      background-color: #d3d3d3;
+    }
+  }
+
+  i {
+    @include mq-down('lgm') {
+      margin-right: 1em;
+    }
+  }
+
+  .icon-drive_ride {
+    font-size: 12px;
+
+    @include mq-up('lgm') {
+      font-size: 17px;
+    }
+  }
+
+  .icon-ship_ride {
+    font-size: 12px;
+
+    @include mq-up('lgm') {
+      font-size: 14px;
+    }
+  }
+
+  .icon-bicycle {
+    @include mq-up('lgm') {
+      font-size: 17px;
+    }
+  }
+
+  .icon-rental_cycle {
+    @include mq-up('lgm') {
+      font-size: 17px;
+    }
+  }
+
+  .icon-repair {
+    @include mq-up('lgm') {
+      font-size: 17px;
+    }
+  }
+
+  .icon-support_car {
+    font-size: 10px;
+
+    @include mq-up('lgm') {
+      font-size: 13px;
+    }
+  }
+
+  .icon-car_forwarding {
+    font-size: 11px;
+    @include mq-up('lgm') {
+      font-size: 14px;
+    }
+  }
+
+  .icon-shower02 {
+    @include mq-up('lgm') {
+      font-size: 17px;
+    }
+  }
+
+  .icon-self-repair {
+    @include mq-up('lgm') {
+      font-size: 17px;
+    }
+  }
+
+  .icon-travel_agency {
+    font-size: 9px;
+
+    @include mq-up('lgm') {
+      font-size: 13px;
+    }
+  }
+}
+
+.gnav-item--tertiary:not(:last-child) .gnav-item__link--tertiary {
+  @include mq-down('lgm') {
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.gnav-item--primary--home {
+  @include mq-down('lgm') {
+    order: 1;
+  }
+}
+
+.gnav-item--primary--facility {
+  @include mq-down('lgm') {
+    order: 2;
+  }
+}
+
+.gnav-item--primary--hotel {
+  @include mq-down('lgm') {
+    order: 3;
+  }
+}
+
+.gnav-item--primary--cafe {
+  @include mq-down('lgm') {
+    order: 5;
+  }
+}
+
+.gnav-item--primary--travel {
+  @include mq-down('lgm') {
+    order: 6;
+  }
+}
+
+.gnav-item--primary--cycling_support {
+  @include mq-down('lgm') {
+    order: 4;
+  }
+}
+
+.gnav-item--primary--blog {
+  @include mq-down('lgm') {
+    order: 7;
+  }
+}
+
+.gnav-item--primary--news {
+  @include mq-down('lgm') {
+    order: 8;
+  }
+}
+
+.gnav-item--primary--about {
+  @include mq-down('lgm') {
+    order: 9;
+  }
+}
+
+.bottomArea .footer-block {
+  background-color: #fff;
+
+  @include mq-down('lgm') {
+    background-color: #060c17;
+  }
+
+  &:before {
+    @include mq-up('lgm') {
+      display: none;
+    }
+  }
+}
+
+.gnav .sns {
+  margin: 0 auto;
+  float: none;
+  justify-content: center;
+}
+
+.gnav .sns li {
+  width: 45px;
+  height: 45px;
+}
+
+.gnav .sns li img {
+  width: 100%;
+}
+
+.gnav .sns li a {
+  padding: 0;
+}
+
+.gnav .menulogo {
+  width: 56px;
+  margin: 30px auto 1em;
+  text-align: center;
+}
+
+.gnav .menulogo img {
+  width: 100%;
+}
+
+.gnav .copyright {
+    padding: 0;
+    border-top: 1px solid #323336;
+    line-height: 30px;
+}
+
+.gnav-sns {
+  display: flex;
+  justify-content: center;
+  float: none !important;
+  margin-top: 30px;
+
+  @include mq-up('lgm') {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .is-nav-opened & {
+    @include mq-up('lgm') {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.4s;
+    }
+  }
+}
+
+.gnav-sns__item:not(:last-child) {
+  margin-right: 20px;
+
+  @include mq-up('lgm') {
+    margin-right: 11px;
+  }
+}
+
+.gnav-sns__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #fff;
+  border-radius: 50px;;
+  color: #fff !important;
+
+  @include mq-up('lgm') {
+    width: 36px;
+    height: 36px;
+    border-color: #00244e;
+    color: #00244e !important;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    @include mq-up('lgm') {
+      color: #ff6600 !important;
+      border-color: #ff6600;
+    }
+  }
+
+  i {
+    font-size: 20px;
+
+    @include mq-up('lgm') {
+      font-size: 18px;
+    }
+  }
+
+  .icon-line2 {
+    font-size: 24px;
+
+    @include mq-up('lgm') {
+      font-size: 22px;
+    }
+  }
+}
+
+/* gnav-toggle
+---------------------------------------------------------- */
+.gnav-toggle {
+  position: relative;
+  display: block;
+  width: 50px;
+  height: 36px;
+  margin: 0 auto 10px;
+  cursor: pointer;
+
+  @include mq-down('lgm') {
+    display: none;
+  }
+
+  .is-nav-opened & {
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
+.gnav-toggle__inner,
+.gnav-toggle__inner:before,
+.gnav-toggle__inner:after {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #00244e;
+  transition-duration: .15s;
+  transition-property: width, transform;
+  transition-timing-function: ease-in-out;
+}
+
+.gnav-toggle__inner {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.gnav-toggle__inner:before,
+.gnav-toggle__inner:after {
+  content: '';
+}
+
+.gnav-toggle__inner:before {
+  top: -8px;
+}
+
+.gnav-toggle__inner:after {
+  top: 8px;
+}
+
+.gnav-toggle:hover .gnav-toggle__inner {
+  &:before, &:after {
+    width: 16px;
+    will-change: width, transform;
+  }
+}
+
+.is-nav-opened .gnav-toggle:hover .gnav-toggle__inner {
+  &:before {
+    transform: translateY(13px) translateX(-4px) rotate(45deg);
+  }
+
+  &:after {
+    transform: translateY(-13px) translateX(-4px) rotate(-45deg);
+  }
+}
+
+.gnav-toggle:hover .gnav-toggle__inner {
+  &:before {
+    transform: translateY(13px) translateX(7px) rotate(-45deg);
+  }
+
+  &:after {
+    transform: translateY(-13px) translateX(7px) rotate(45deg);
+  }
+}
+
+/* gnav animation SP （アニメーション用のためスタイルは上部に別途記載）
+---------------------------------------------------------- */
+.gnav {
+  @include mq-down('lgm') {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    transform: translateY(-100vh);
+    transition: all .5s;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 20;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .is-nav-opened & {
+    @include mq-down('lgm') {
+      max-height: calc(100vh - 60px);
+      transform: translateY(60px);
+      overflow: scroll;
+    }
+  }
+}
+
+/* overlay
+---------------------------------------------------------- */
+.is-nav-opened {
+  height: 100%;
+  overflow: hidden;
+}
+
+.overlay {
+  display: none;
+
+  .is-nav-opened & {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, 0.6);
+    z-index: 10;
+  }
+}
+
+/* gnav animation PC （アニメーション用のためスタイルは上部に別途記載）
+---------------------------------------------------------- */
+.gnav__menu {
+
+}
+
+.gnav-item__inner {
+  position: relative;
+}
+
+.gnav-dropdown__icon {
+  @include mq-up('lgm') {
+    display: none;
+  }
+}
+
+.gnav-dropdown__content {
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* Dropdown animation PC （アニメーション用のためスタイルは上部に別途記載）
+---------------------------------------------------------- */
+
+.gnav-dropdown {
+  @include mq-up('lgm') {
+
+  }
+}
+
+.gnav-dropdown__content {
+  @include mq-up('lgm') {
+    position: fixed;
+    left: 218px;
+    top: 0;
+    min-height: 0;
+    visibility: hidden;
+    transition: opacity .4s;
+    overflow: auto;
+    opacity: 0;
+  }
+
+  .is-nav-opened .gnav-item--primary:hover &,
+  .is-nav-opened .gnav-item--primary.is-mouseover & {
+    @include mq-up('lgm') {
+      min-height: 100vh;
+      padding-top: 78px;
+      visibility: visible;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+}
+
+/* Dropdown animation SP （アニメーション用のためスタイルは上部に別途記載）
+---------------------------------------------------------- */
+.gnav-dropdown {
+  @include mq-down('lgm') {
+    overflow: hidden;
+  }
+}
+
+.gnav-dropdown__content {
+
+  @include mq-down('lgm') {
+    transition: all .35s;
+  }
+
+  .is-expand > & {
+    @include mq-down('lgm') {
+      max-height: 100vh;
+    }
+  }
+}
+
+/* ---- gnav-dropdown__icon ---- */
+.gnav-dropdown__icon {
+  @include mq-up('lgm') {
+    display: none;
+  }
+}
+
+.gnav-dropdown__icon {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+}
+
+.gnav-dropdown__icon:before,
+.gnav-dropdown__icon:after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: widtnPercent(108, 30);
+  height: 1.5px;
+  background-color: #00244e;
+  box-sizing: border-box;
+  transition: all .3s;
+  content: '';
+}
+
+.gnav-dropdown__icon:before {
+  transform: translateX(-50%) rotate(0deg);
+
+  .is-expand > .gnav-item__inner > & {
+    display:none;
+  }
+}
+
+.gnav-dropdown__icon:after {
+  transform: translateX(-50%) rotate(90deg);
+
+  .is-expand > .gnav-item__inner > & {
+    transform: translateX(-50%) rotate(180deg);
+  }
+}
+
+/* event-nav
+---------------------------------------------------------- */
+.gnav-under-bnrs {
+  @include mq-down('lgm') {
+  }
+}
+
+.gnav-under-bnrs__item {
+  @include mq-down('lgm') {
+    width: widtnPercent(750, 710);
+    margin: widtnPercent(750, 40) auto;
+    line-height: 0;
+  }
+}
